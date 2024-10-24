@@ -143,6 +143,7 @@
             // 
             // grpTotal
             // 
+
             grpTotal.Controls.Add(txtOrderTotal);
             grpTotal.Controls.Add(txtTax);
             grpTotal.Controls.Add(txtSubTotal);
