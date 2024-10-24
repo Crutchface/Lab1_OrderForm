@@ -143,7 +143,6 @@
             // 
             // grpTotal
             // 
-
             grpTotal.Controls.Add(txtOrderTotal);
             grpTotal.Controls.Add(txtTax);
             grpTotal.Controls.Add(txtSubTotal);
@@ -226,6 +225,7 @@
             btnClear.TabIndex = 4;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnExit
             // 

@@ -19,7 +19,7 @@ namespace Lab1_OrderForm
         }
         // Changes values based on hamburger radio value
         private void rdoHamburger_CheckedChanged(object sender, EventArgs e)
-        {   
+        {
             // Sets default text to nothing
             grpAddOns.Text = "";
             // Changes the main course price to that of a hamburger 
@@ -36,7 +36,7 @@ namespace Lab1_OrderForm
         }
 
         private void frmLunchOrder_Load(object sender, EventArgs e)
-        {   
+        {
             //Sets the default texts for the program loading and default checkbox
             rdoHamburger.Checked = true;
             rdoHamburger.Text += $"({hamburgerPrice.ToString("c")})";
@@ -85,11 +85,11 @@ namespace Lab1_OrderForm
         }
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
-        {   
+        {
             // checks how many toppings are checked and increments a multiplier 
-            if(chkTopping1.Checked)
+            if (chkTopping1.Checked)
             {
-                 topMultiplier++;
+                topMultiplier++;
             }
             if (chkTopping2.Checked)
             {
@@ -104,7 +104,7 @@ namespace Lab1_OrderForm
             // Changes textbox for subtotal and makes it in currency format 
             txtSubTotal.Text = subtotal.ToString("c");
             // Calculates the taxes and rounds to 2 decimals 
-            decimal taxes = subtotal * tax; 
+            decimal taxes = subtotal * tax;
             decimal totalTaxes = Math.Round(taxes, 2);
             // changes textbox for tax to tax value
             txtTax.Text = totalTaxes.ToString("c");
@@ -117,5 +117,19 @@ namespace Lab1_OrderForm
 
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {   
+            // Resets all forms and multiplier for toppings 
+            rdoHamburger.Checked = true;
+            chkTopping1.Checked = false;
+            chkTopping2.Checked = false;
+            chkTopping3.Checked = false;
+            txtOrderTotal.Clear();
+            txtTax.Clear();
+            txtSubTotal.Clear();
+            // Resets multiplier for toppings 
+            topMultiplier = 0;
+
+        }
     }
 }
