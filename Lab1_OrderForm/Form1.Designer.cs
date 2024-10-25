@@ -281,7 +281,7 @@
             Controls.Add(picBob);
             Controls.Add(picKrab);
             Name = "frmLunchOrder";
-            Text = "3";
+            Text = "Krusty Krab Order Form";
             TopMost = true;
             Load += frmLunchOrder_Load;
             grpMainOrder.ResumeLayout(false);
