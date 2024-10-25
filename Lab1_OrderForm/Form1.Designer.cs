@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLunchOrder));
             grpMainOrder = new GroupBox();
             rdoSalad = new RadioButton();
             rdoPizza = new RadioButton();
@@ -46,9 +47,13 @@
             btnPlaceOrder = new Button();
             btnClear = new Button();
             btnExit = new Button();
+            picBob = new PictureBox();
+            picKrab = new PictureBox();
             grpMainOrder.SuspendLayout();
             grpAddOns.SuspendLayout();
             grpTotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picBob).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picKrab).BeginInit();
             SuspendLayout();
             // 
             // grpMainOrder
@@ -56,7 +61,7 @@
             grpMainOrder.Controls.Add(rdoSalad);
             grpMainOrder.Controls.Add(rdoPizza);
             grpMainOrder.Controls.Add(rdoHamburger);
-            grpMainOrder.Location = new Point(52, 40);
+            grpMainOrder.Location = new Point(51, 230);
             grpMainOrder.Name = "grpMainOrder";
             grpMainOrder.Size = new Size(308, 159);
             grpMainOrder.TabIndex = 0;
@@ -104,7 +109,7 @@
             grpAddOns.Controls.Add(chkTopping3);
             grpAddOns.Controls.Add(chkTopping2);
             grpAddOns.Controls.Add(chkTopping1);
-            grpAddOns.Location = new Point(431, 40);
+            grpAddOns.Location = new Point(430, 230);
             grpAddOns.Name = "grpAddOns";
             grpAddOns.Size = new Size(310, 159);
             grpAddOns.TabIndex = 1;
@@ -149,7 +154,7 @@
             grpTotal.Controls.Add(lblOrderTotal);
             grpTotal.Controls.Add(lblTax);
             grpTotal.Controls.Add(lblSubTotal);
-            grpTotal.Location = new Point(52, 242);
+            grpTotal.Location = new Point(51, 432);
             grpTotal.Name = "grpTotal";
             grpTotal.Size = new Size(308, 174);
             grpTotal.TabIndex = 2;
@@ -163,6 +168,7 @@
             txtOrderTotal.ReadOnly = true;
             txtOrderTotal.Size = new Size(125, 27);
             txtOrderTotal.TabIndex = 5;
+            txtOrderTotal.TabStop = false;
             // 
             // txtTax
             // 
@@ -171,6 +177,7 @@
             txtTax.ReadOnly = true;
             txtTax.Size = new Size(125, 27);
             txtTax.TabIndex = 4;
+            txtTax.TabStop = false;
             // 
             // txtSubTotal
             // 
@@ -179,6 +186,7 @@
             txtSubTotal.ReadOnly = true;
             txtSubTotal.Size = new Size(125, 27);
             txtSubTotal.TabIndex = 3;
+            txtSubTotal.TabStop = false;
             // 
             // lblOrderTotal
             // 
@@ -209,47 +217,71 @@
             // 
             // btnPlaceOrder
             // 
-            btnPlaceOrder.Location = new Point(522, 242);
+            btnPlaceOrder.Location = new Point(521, 432);
             btnPlaceOrder.Name = "btnPlaceOrder";
             btnPlaceOrder.Size = new Size(219, 47);
-            btnPlaceOrder.TabIndex = 3;
-            btnPlaceOrder.Text = "Place Order";
+            btnPlaceOrder.TabIndex = 1;
+            btnPlaceOrder.Text = "Place &Order";
             btnPlaceOrder.UseVisualStyleBackColor = true;
             btnPlaceOrder.Click += btnPlaceOrder_Click;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(522, 300);
+            btnClear.Location = new Point(521, 490);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(219, 47);
-            btnClear.TabIndex = 4;
-            btnClear.Text = "Clear";
+            btnClear.TabIndex = 2;
+            btnClear.Text = "&Clear";
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(522, 360);
+            btnExit.Location = new Point(521, 550);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(219, 47);
-            btnExit.TabIndex = 5;
-            btnExit.Text = "Exit";
+            btnExit.TabIndex = 3;
+            btnExit.Text = "E&xit";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
+            // picBob
+            // 
+            picBob.Image = (Image)resources.GetObject("picBob.Image");
+            picBob.Location = new Point(31, -57);
+            picBob.Name = "picBob";
+            picBob.Size = new Size(409, 347);
+            picBob.SizeMode = PictureBoxSizeMode.Zoom;
+            picBob.TabIndex = 4;
+            picBob.TabStop = false;
+            // 
+            // picKrab
+            // 
+            picKrab.Image = (Image)resources.GetObject("picKrab.Image");
+            picKrab.Location = new Point(306, -76);
+            picKrab.Name = "picKrab";
+            picKrab.Size = new Size(531, 391);
+            picKrab.SizeMode = PictureBoxSizeMode.Zoom;
+            picKrab.TabIndex = 5;
+            picKrab.TabStop = false;
+            // 
             // frmLunchOrder
             // 
+            AcceptButton = btnPlaceOrder;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            CancelButton = btnClear;
+            ClientSize = new Size(800, 643);
             Controls.Add(btnExit);
             Controls.Add(btnClear);
             Controls.Add(btnPlaceOrder);
             Controls.Add(grpTotal);
             Controls.Add(grpAddOns);
             Controls.Add(grpMainOrder);
+            Controls.Add(picBob);
+            Controls.Add(picKrab);
             Name = "frmLunchOrder";
-            Text = "Lunch Order";
+            Text = "3";
             TopMost = true;
             Load += frmLunchOrder_Load;
             grpMainOrder.ResumeLayout(false);
@@ -258,6 +290,8 @@
             grpAddOns.PerformLayout();
             grpTotal.ResumeLayout(false);
             grpTotal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picBob).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picKrab).EndInit();
             ResumeLayout(false);
         }
 
@@ -281,5 +315,7 @@
         private Button btnPlaceOrder;
         private Button btnClear;
         private Button btnExit;
+        private PictureBox picBob;
+        private PictureBox picKrab;
     }
 }

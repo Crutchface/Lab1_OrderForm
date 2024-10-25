@@ -6,12 +6,19 @@ namespace Lab1_OrderForm
     public partial class frmLunchOrder : Form
     {   // Chris Ferguson - Oct 23 - RAD Assignment 1 
         // Declaring our values  
+        // This instantiates our topping price until defines later 
         decimal toppingPrice = 0m;
+        // Same for mains price. 
         decimal mainPrice = 0;
+        // Resets our topping multiplier 
         decimal topMultiplier = 0;
+        // Our  main hamburger price 
         decimal hamburgerPrice = 6.95m;
+        // our main pizza price
         decimal pizzaPrice = 5.95m;
+        // Our Salad price
         decimal saladPrice = 4.95m;
+        // Our tax rate
         decimal tax = .050m;
         public frmLunchOrder()
         {
@@ -19,9 +26,13 @@ namespace Lab1_OrderForm
         }
         // Changes values based on hamburger radio value
         private void rdoHamburger_CheckedChanged(object sender, EventArgs e)
-        {
+        {   
             // Sets default text to nothing
             grpAddOns.Text = "";
+            // Unchecks any boxes 
+            chkTopping1.Checked = false;
+            chkTopping2.Checked = false;
+            chkTopping3.Checked = false;
             // Changes the main course price to that of a hamburger 
             mainPrice = hamburgerPrice;
             // Labels the 3 toppings 
@@ -30,7 +41,7 @@ namespace Lab1_OrderForm
             chkTopping3.Text = "French Fries";
             // Changes the prices for each topping
             toppingPrice = .75m;
-            // Changes the text for the price of the toppings 
+            // Changes the text for the price of the toppings and sends the price to the group box
             grpAddOns.Text += $"(Add On Items {toppingPrice.ToString("c")}/each)";
 
         }
@@ -50,6 +61,10 @@ namespace Lab1_OrderForm
         private void rdoPizza_CheckedChanged(object sender, EventArgs e)
         {   // CHanges values based on changing choice to pizza 
             grpAddOns.Text = "";
+            // Unchecks any boxes 
+            chkTopping1.Checked = false;
+            chkTopping2.Checked = false;
+            chkTopping3.Checked = false;
             // Sets the main course price to that of pizza
             mainPrice = pizzaPrice;
             // Changes the names of the toppings
@@ -58,7 +73,7 @@ namespace Lab1_OrderForm
             chkTopping3.Text = "Olives";
             // Changes the price of all toppings 
             toppingPrice = .50m;
-            // Changes text for topping price
+            // Changes text for topping price and changes price for topping group box price
             grpAddOns.Text += $"(Add On Items {toppingPrice.ToString("c")}/each)";
 
         }
@@ -66,6 +81,10 @@ namespace Lab1_OrderForm
         private void rdoSalad_CheckedChanged(object sender, EventArgs e)
         {   // Changes based on salad selection 
             grpAddOns.Text = "";
+            // Unchecks any boxes 
+            chkTopping1.Checked = false;
+            chkTopping2.Checked = false;
+            chkTopping3.Checked = false;
             // sets main price to that of a salad 
             mainPrice = saladPrice;
             // Changes text of toppings 
@@ -74,13 +93,13 @@ namespace Lab1_OrderForm
             chkTopping3.Text = "Bread Sticks";
             // Changes values of toppings 
             toppingPrice = .25m;
-            // Changes text of addons 
+            // Changes text of addons and sends the price to the group box 
             grpAddOns.Text += $"(Add On Items {toppingPrice.ToString("c")}/each)";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            // Closes the window 
+            // Closes the window on the button click
             this.Close();
         }
 
