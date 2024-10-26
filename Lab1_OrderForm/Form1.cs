@@ -20,6 +20,9 @@ namespace Lab1_OrderForm
         decimal saladPrice = 4.95m;
         // Our tax rate
         decimal tax = .050m;
+
+
+        
         public frmLunchOrder()
         {
             InitializeComponent();
@@ -122,14 +125,11 @@ namespace Lab1_OrderForm
             decimal subtotal = mainPrice + (topMultiplier * toppingPrice);
             // Changes textbox for subtotal and makes it in currency format 
             txtSubTotal.Text = subtotal.ToString("c");
-            // Calculates the taxes and rounds to 2 decimals 
-            decimal taxes = subtotal * tax;
-            decimal totalTaxes = Math.Round(taxes, 2);
-            // changes textbox for tax to tax value
-            txtTax.Text = totalTaxes.ToString("c");
-            // Does the math for the total price and places the value in the text box. 
-            decimal fullPrice = subtotal + taxes;
-            txtOrderTotal.Text = fullPrice.ToString("c");
+            // Calculates the taxes and rounds to 2 decimals using a declared function
+            var result = CalculateTotalWithTaxes(subtotal, tax);
+            // Sets the textboxes to the results from the function
+            txtTax.Text = result.totalTax.ToString("c");
+            txtOrderTotal.Text = result.fullPrice.ToString("c");
 
 
 
@@ -149,6 +149,19 @@ namespace Lab1_OrderForm
             // Resets multiplier for toppings 
             topMultiplier = 0;
 
+        }
+
+        public  (decimal fullPrice, decimal totalTax) CalculateTotalWithTaxes(decimal subtotal, decimal tax)
+        {
+            // Calculate taxes
+            decimal taxes = subtotal * tax;
+            decimal totalTaxes = Math.Round(taxes, 2);
+
+            // Calculate the full price
+            decimal fullPrice = subtotal + totalTaxes;
+
+            // Return the total price
+            return (fullPrice, totalTaxes);
         }
     }
 }
